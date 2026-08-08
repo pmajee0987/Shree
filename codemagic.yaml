@@ -15,7 +15,9 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          npm install
+          rm -f package-lock.json
+          npm install --include=optional
+          npm install --no-save @rollup/rollup-darwin-arm64 @esbuild/darwin-arm64
       - name: Type check and lint
         script: |
           npm run lint
@@ -35,7 +37,9 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          npm install
+          rm -f package-lock.json
+          npm install --include=optional
+          npm install --no-save @rollup/rollup-darwin-arm64 @esbuild/darwin-arm64
       - name: Build Web Bundle
         script: |
           npm run build
